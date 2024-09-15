@@ -21,19 +21,44 @@ app.get("/posts", async (req, res) => {
 });
 
 app.post("/posts", async (req, res) => {
-  const { titulo, url, descripcion } = req.body;
-  await escribirPost(titulo, url, descripcion);
-  res.send("El post fue agregado");
+  try {
+    const { titulo, url, descripcion } = req.body;
+
+    if (!titulo || !url || !descripcion) {
+      return res
+        .status(400)
+        .send("Todos los campos (titulo, url, descripcion) son obligatorios.");
+    }
+    await escribirPost(titulo, url, descripcion);
+    res.send("El post fue agregado");
+  } catch (error) {
+    const { code } = error;
+    if (code == "23502") {
+      res
+        .status(400)
+        .send("Se ha violado la restricción NOT NUL en uno de los campos");
+    } else {
+      res.status(500).send(error);
+    }
+  }
 });
 
 app.put("/posts/like/:id", async (req, res) => {
   const id = req.params.id;
-  await agregarLike(id);
-  res.send("ok ...");
+  try {
+    await agregarLike(id);
+    res.send("tenemos tu like");
+  } catch ({ code, message }) {
+    res.status(code).send(message);
+  }
 });
 
 app.delete("/posts/:id", async (req, res) => {
   const id = req.params.id;
-  await borrarPost(id);
-  res.send("CHAO ...");
+  try {
+    await borrarPost(id);
+    res.send("El post fue eliminado");
+  } catch ({ code, message }) {
+    res.status(code).send(message);
+  }
 });
