@@ -17,8 +17,11 @@ usando la sentencia try catch .
 
 ## Registro
 ![Captura de Pantalla 2024-09-13 a la(s) 20 21 56](https://github.com/user-attachments/assets/7819f6cb-2308-415e-92ff-8b9bc6483764)
+
 ![Captura de Pantalla 2024-09-13 a la(s) 20 22 03](https://github.com/user-attachments/assets/73285c37-86f6-4e24-ad56-c266db5da011)
+
 ![Captura de Pantalla 2024-09-16 a la(s) 00 33 56](https://github.com/user-attachments/assets/f8bf9592-bf0d-4176-9842-a9101bad535a)
+
 ![Captura de Pantalla 2024-09-16 a la(s) 00 05 19](https://github.com/user-attachments/assets/1227423c-cf0c-430c-b7e9-c1479b421f37)
 
 
